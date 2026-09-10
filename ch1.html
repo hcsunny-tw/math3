@@ -8,8 +8,8 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- 直接載入「芫荽注音體」雲端字型 (CDN) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/max32002/bpmfiansui@master/webfont/bpmfiansui.css" />
+  <!-- 預設無注音版的芫荽體 (當作網路卡頓時的安全備用 Fallback) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/max32002/iansui@master/webfont/iansui.css" />
   
   <!-- React & ReactDOM -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
@@ -19,9 +19,19 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <style>
+    /* 直接掛載雲端上的「芫荽注音體 (BpmfIansui)」WOFF2 壓縮檔 */
+    @font-face {
+      font-family: 'BpmfIansui';
+      src: local('BpmfIansui'), local('芫荽注音'), 
+           url('https://cdn.jsdelivr.net/gh/leadra/webfont/BpmfIansui-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap; /* 讓文字先用無注音版顯示，載入完畢後自動切換，避免畫面空白 */
+    }
+
     body {
-      /* 直接套用雲端注音字型 */
-      font-family: 'BpmfIansui', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      /* 第一順位：芫荽注音體 ➔ 第二順位：無注音芫荽體 ➔ 第三順位：系統預設字體 */
+      font-family: 'BpmfIansui', 'Iansui', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: #f7f7f5;
       touch-action: pan-y; /* 改善平板滑動體驗 */
     }
@@ -42,8 +52,14 @@
   </style>
 </head>
 <body class="text-gray-800 antialiased selection:bg-blue-400 selection:text-white">
-  <div id="root"></div>
+<div id="root"></div>
 
+  <!-- 新增的專屬頁尾 -->
+  <div class="fixed bottom-2 right-3 text-xs sm:text-sm font-bold text-gray-400/80 z-50 pointer-events-none tracking-widest">
+    筱晴老師製作
+  </div>
+
+  
   <script type="text/babel">
     const Clock = ({ className = "w-5 h-5" }) => <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>;
     const Key = ({ className = "w-5 h-5" }) => <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>;
