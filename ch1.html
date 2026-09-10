@@ -14,59 +14,72 @@
   <!-- React & ReactDOM (UMD) -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-
-  <!-- Babel Standalone -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <style>
     body {
       font-family: 'Iansui', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f7f7f5; /* 清爽的類紙張背景 */
+    }
+    /* 建立積木風格的立體陰影與按壓效果 */
+    .btn-lego {
+      border: 2px solid #1f2937;
+      box-shadow: 4px 4px 0px 0px #1f2937;
+      transition: all 0.1s ease-in-out;
+    }
+    .btn-lego:active {
+      box-shadow: 0px 0px 0px 0px #1f2937;
+      transform: translate(4px, 4px);
+    }
+    .card-lego {
+      border: 3px solid #1f2937;
+      box-shadow: 6px 6px 0px 0px #1f2937;
     }
   </style>
 </head>
-<body class="bg-slate-50 text-gray-800 antialiased selection:bg-indigo-500 selection:text-white">
+<body class="text-gray-800 antialiased selection:bg-blue-400 selection:text-white">
   <div id="root"></div>
 
   <script type="text/babel">
     const Clock = ({ className = "w-5 h-5" }) => (
       <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     );
 
     const Key = ({ className = "w-5 h-5" }) => (
       <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
       </svg>
     );
 
     const AlertCircle = ({ className = "w-5 h-5" }) => (
       <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     );
 
     const XCircle = ({ className = "w-5 h-5" }) => (
       <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     );
 
     const Trophy = ({ className = "w-5 h-5" }) => (
       <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2 0h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 3v4M3 5h4M6 17v4m-2 0h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
       </svg>
     );
 
     const RefreshCw = ({ className = "w-5 h-5" }) => (
       <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
       </svg>
     );
 
     const ChevronRight = ({ className = "w-5 h-5" }) => (
       <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
       </svg>
     );
 
@@ -80,12 +93,6 @@
       <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    );
-
-    const QrCodeIcon = ({ className = "w-5 h-5" }) => (
-      <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4m0-4v-4m0 4h4m-4-8a3 3 0 01-3-3V5a3 3 0 013-3h2a3 3 0 013 3v2a3 3 0 01-3 3h-2zm-3 8a3 3 0 01-3-3v-2a3 3 0 013-3h2a3 3 0 013 3v2a3 3 0 01-3 3h-2zM5 19a3 3 0 01-3-3v-2a3 3 0 013-3h2a3 3 0 013 3v2a3 3 0 01-3 3H5z" />
       </svg>
     );
 
@@ -107,133 +114,79 @@
             q: "密碼鎖上寫著：「請寫出『七千零五十』的阿拉伯數字密碼。」",
             a: "7050",
             hint: "再檢查看看，「百位」沒有數字要補 0 喔！",
-            similar: {
-              id: "1-S",
-              masterId: 1,
-              q: "【復活試煉】密碼鎖上寫著：「請寫出『八千零六十』的阿拉伯數字密碼。」",
-              a: "8060",
-              hint: "再檢查看看，「百位」沒有數字要補 0 喔！"
-            }
+            similar: { id: "1-S", masterId: 1, q: "【復活試煉】密碼鎖上寫著：「請寫出『八千零六十』的阿拉伯數字密碼。」", a: "8060", hint: "再檢查看看，「百位」沒有數字要補 0 喔！" }
           },
           {
             id: 2,
             q: "門上的第二道鎖需要知道：10 個 1000 合起來是多少？",
             a: "10000",
             hint: "想一想，10 個一千是「一萬」喔！寫成數字有幾個 0 呢？",
-            similar: {
-              id: "2-S",
-              masterId: 2,
-              q: "【復活試煉】門上的另一道鎖需要知道：10 個 100 合起來是多少？",
-              a: "1000",
-              hint: "想一想，10 個一百是「一千」喔！"
-            }
+            similar: { id: "2-S", masterId: 2, q: "【復活試煉】門上的另一道鎖需要知道：10 個 100 合起來是多少？", a: "1000", hint: "想一想，10 個一百是「一千」喔！" }
           }
         ]
       },
       {
         level: 2,
-        title: "關卡二：魔法金幣換算所",
-        story: "通過石門後，遇到了一隻小精靈，他需要你幫忙清點金幣袋才肯拿給你鑰匙！",
-        icon: "🧚‍♂️💰",
+        title: "關卡二：水豚精靈的金幣換算所",
+        story: "通過石門後，遇到了一隻慵懶的水豚精靈，他需要你幫忙清點金幣袋才肯交出鑰匙！",
+        icon: "🦫💰",
         questions: [
           {
             id: 3,
             q: "袋子裡有 6 個千、14 個百和 5 個一，請問總共有多少枚金幣？",
             a: "7405",
             hint: "注意！14 個百是 1400 喔！要記得進位到千位。",
-            similar: {
-              id: "3-S",
-              masterId: 3,
-              q: "【復活試煉】袋子裡有 4 個千、12 個百和 8 個一，請問總共有多少枚金幣？",
-              a: "5208",
-              hint: "注意！12 個百是 1200 喔！要記得進位到千位。"
-            }
+            similar: { id: "3-S", masterId: 3, q: "【復活試煉】袋子裡有 4 個千、12 個百和 8 個一，請問總共有多少枚金幣？", a: "5208", hint: "注意！12 個百是 1200 喔！要記得進位到千位。" }
           },
           {
             id: 4,
             q: "寶箱號碼是 8092，這個數是由 8 個千、幾個十和 2 個一合成的？（請填數字）",
             a: "9",
             hint: "看清楚「十位」上的數字是多少喔！",
-            similar: {
-              id: "4-S",
-              masterId: 4,
-              q: "【復活試煉】寶箱號碼是 7504，這個數是由 7 個千、5 個百和幾個一合成的？（請填數字）",
-              a: "4",
-              hint: "看清楚「個位」上的數字是多少喔！"
-            }
+            similar: { id: "4-S", masterId: 4, q: "【復活試煉】寶箱號碼是 7504，這個數是由 7 個千、5 個百和幾個一合成的？（請填數字）", a: "4", hint: "看清楚「個位」上的數字是多少喔！" }
           },
           {
             id: 5,
-            q: "小精靈有 3000 枚銀幣，可以換成幾個「百枚銀幣袋」？",
+            q: "水豚有 3000 枚銀幣，可以換成幾個「百枚銀幣袋」？",
             a: "30",
             hint: "想想看，幾個 100 會是 3000 呢？",
-            similar: {
-              id: "5-S",
-              masterId: 5,
-              q: "【復活試煉】小精靈有 5000 枚金幣，可以換成幾個「百枚金幣袋」？",
-              a: "50",
-              hint: "想想看，幾個 100 會是 5000 呢？"
-            }
+            similar: { id: "5-S", masterId: 5, q: "【復活試煉】水豚有 5000 枚金幣，可以換成幾個「百枚金幣袋」？", a: "50", hint: "想想看，幾個 100 會是 5000 呢？" }
           }
         ]
       },
       {
         level: 3,
-        title: "關卡三：國王的大亂鬥與幸運抽獎",
-        story: "來到數字王國的廣場，國王正在舉辦幸運大抽獎與數字卡牌比試！",
-        icon: "👑⚔️",
+        title: "關卡三：小狗騎士的大亂鬥",
+        story: "來到數字王國的廣場，戴著王冠的小狗騎士正在舉辦卡牌比試！",
+        icon: "🐶⚔️",
         questions: [
           {
             id: 6,
-            q: "國王給了你四張卡片：5、0、9、3。請組成一個『最大的四位數』。",
+            q: "騎士給了你四張卡片：5、0、9、3。請組成一個『最大的四位數』。",
             a: "9530",
             hint: "要組成最大的數，數字要從大到小排列喔！",
-            similar: {
-              id: "6-S",
-              masterId: 6,
-              q: "【復活試煉】國王給了你四張卡片：7、0、8、2。請組成一個『最大的四位數』。",
-              a: "8720",
-              hint: "要組成最大的數，數字要從大到小排列喔！"
-            }
+            similar: { id: "6-S", masterId: 6, q: "【復活試煉】騎士給了你四張卡片：7、0、8、2。請組成一個『最大的四位數』。", a: "8720", hint: "要組成最大的數，數字要從大到小排列喔！" }
           },
           {
             id: 7,
             q: "同上一題的卡片 5、0、9、3，請組成一個『最小的四位數』。（注意：千位不能是 0）",
             a: "3059",
             hint: "最小的數要把小的數字放前面，但最高位（千位）不能是 0 喔！",
-            similar: {
-              id: "7-S",
-              masterId: 7,
-              q: "【復活試煉】有四張卡片：7、0、8、2。請組成一個『最小的四位數』。（注意：千位不能是 0）",
-              a: "2078",
-              hint: "最小的數要把小的數字放前面，但最高位（千位）不能是 0 喔！"
-            }
+            similar: { id: "7-S", masterId: 7, q: "【復活試煉】有四張卡片：7、0、8、2。請組成一個『最小的四位數』。（注意：千位不能是 0）", a: "2078", hint: "最小的數要把小的數字放前面，但最高位（千位）不能是 0 喔！" }
           },
           {
             id: 8,
             q: "四位騎士的戰鬥力：A是4809，B是4901，C是4890，D是4099。請問最高戰鬥力是多少？",
             a: "4901",
             hint: "先比較千位（都是 4），再比較百位，誰的百位最大呢？",
-            similar: {
-              id: "8-S",
-              masterId: 8,
-              q: "【復活試煉】四位騎士的戰鬥力：A是5608，B是5806，C是5086，D是5680。請問最高戰鬥力是多少？",
-              a: "5806",
-              hint: "先比較千位（都是 5），再比較百位，誰的百位最大呢？"
-            }
+            similar: { id: "8-S", masterId: 8, q: "【復活試煉】四位騎士的戰鬥力：A是5608，B是5806，C是5086，D是5680。請問最高戰鬥力是多少？", a: "5806", hint: "先比較千位（都是 5），再比較百位，誰的百位最大呢？" }
           },
           {
             id: 9,
             q: "國王發出了 5000 張彩券，號碼從 0001 到 5000 號。幸運特獎的「末三碼」是 320。請問總共有幾張彩券會中獎？（請填數字）",
             a: "5",
             hint: "想想看，號碼最後三個數字是 320 的有：0320、1320、2320、3320、4320，總共幾張呢？",
-            similar: {
-              id: "9-S",
-              masterId: 9,
-              q: "【復活試煉】國王發出了 4000 張彩券，號碼從 0001 到 4000 號。幸運特獎的「末三碼」是 150。請問總共有幾張彩券會中獎？",
-              a: "4",
-              hint: "最後三個數字是 150 的有：0150、1150、2150、3150，總共幾張呢？"
-            }
+            similar: { id: "9-S", masterId: 9, q: "【復活試煉】國王發出了 4000 張彩券，號碼從 0001 到 4000 號。幸運特獎的「末三碼」是 150。請問總共有幾張彩券會中獎？", a: "4", hint: "最後三個數字是 150 的有：0150、1150、2150、3150，總共幾張呢？" }
           }
         ]
       },
@@ -248,26 +201,14 @@
             q: "數線上記錄著：[ 4600 ] ➔ [ 4700 ] ➔ [  ?  ] ➔ [ 4900 ]。請問 [ ? ] 的數字是多少？",
             a: "4800",
             hint: "觀察一下，向右每走一格是增加 100 喔！",
-            similar: {
-              id: "10-S",
-              masterId: 10,
-              q: "【復活試煉】數線上記錄著：[ 3500 ] ➔ [ 3600 ] ➔ [  ?  ] ➔ [ 3800 ]。請問 [ ? ] 的數字是多少？",
-              a: "3700",
-              hint: "觀察一下，向右每走一格是增加 100 喔！"
-            }
+            similar: { id: "10-S", masterId: 10, q: "【復活試煉】數線上記錄著：[ 3500 ] ➔ [ 3600 ] ➔ [  ?  ] ➔ [ 3800 ]。請問 [ ? ] 的數字是多少？", a: "3700", hint: "觀察一下，向右每走一格是增加 100 喔！" }
           },
           {
             id: 11,
             q: "數線上記錄著：[ 2100 ] ➔ [ 2150 ] ➔ [ 2200 ] ➔ [  A  ] ➔ [ 2300 ]。請問字母 A 代表多少？",
             a: "2250",
             hint: "向右每走一格是增加 50，2200 再加 50 是多少呢？",
-            similar: {
-              id: "11-S",
-              masterId: 11,
-              q: "【復活試煉】數線上記錄著：[ 1200 ] ➔ [ 1250 ] ➔ [ 1300 ] ➔ [  A  ] ➔ [ 1400 ]。請問字母 A 代表多少？",
-              a: "1350",
-              hint: "向右每走一格是增加 50，1300 再加 50 是多少呢？"
-            }
+            similar: { id: "11-S", masterId: 11, q: "【復活試煉】數線上記錄著：[ 1200 ] ➔ [ 1250 ] ➔ [ 1300 ] ➔ [  A  ] ➔ [ 1400 ]。請問字母 A 代表多少？", a: "1350", hint: "向右每走一格是增加 50，1300 再加 50 是多少呢？" }
           }
         ]
       },
@@ -282,13 +223,7 @@
             q: "密碼提示：一個四位數。比6000大，比7000小。百位是3，十位是8，個位比十位小2。密碼是？",
             a: "6386",
             hint: "一步步推算：千位是6、百位是3、十位是8，個位是 8-2 喔！",
-            similar: {
-              id: "12-S",
-              masterId: 12,
-              q: "【復活試煉】密碼提示：一個四位數。比8000大，比9000小。百位是5，十位是7，個位比十位大2。密碼是？",
-              a: "8579",
-              hint: "一步步推算：千位是8、百位是5、十位是7，個位是 7+2 喔！"
-            }
+            similar: { id: "12-S", masterId: 12, q: "【復活試煉】密碼提示：一個四位數。比8000大，比9000小。百位是5，十位是7，個位比十位大2。密碼是？", a: "8579", hint: "一步步推算：千位是8、百位是5、十位是7，個位是 7+2 喔！" }
           }
         ]
       }
@@ -297,7 +232,7 @@
     const { useState, useEffect } = React;
 
     function MathEscapeRoom() {
-      const [gameState, setGameState] = useState('start'); // start, playing, redemption, success, timeout, gameover
+      const [gameState, setGameState] = useState('start');
       const [seatNumber, setSeatNumber] = useState('');
       const [activeGameData, setActiveGameData] = useState(GAME_DATA);
       const [currentLevelIdx, setCurrentLevelIdx] = useState(0);
@@ -310,13 +245,11 @@
       const [redemptionQuestions, setRedemptionQuestions] = useState([]);
       const [currentRedemptionIdx, setCurrentRedemptionIdx] = useState(0);
       
-      // Teacher Settings State
       const [showTeacherModal, setShowTeacherModal] = useState(false);
       const [scriptUrl, setScriptUrl] = useState('');
       const [sheetUrl, setSheetUrl] = useState('');
       const [copyStatus, setCopyStatus] = useState(false);
 
-      // Check URL parameters for scriptUrl (when students scan teacher's QR code)
       useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
         const urlScript = urlParams.get('scriptUrl');
@@ -337,7 +270,6 @@
 
       const totalQuestions = activeGameData.reduce((acc, level) => acc + level.questions.length, 0);
       const currentGlobalQuestionIdx = activeGameData.slice(0, currentLevelIdx).reduce((acc, level) => acc + level.questions.length, 0) + currentQuestionIdx + 1;
-      
       const isRedemption = gameState === 'redemption';
       
       const displayLevel = isRedemption ? {
@@ -382,21 +314,20 @@
         if (finalState === 'timeout') statusText = '超時未完成';
         if (finalState === 'gameover') statusText = '生命用盡(失敗)';
 
-        const payload = {
-          studentName: seatNumber.trim() ? `${seatNumber.trim()}號` : '未填寫座號',
-          status: statusText,
-          timeUsed: timeSpent,
-          livesLeft: lives,
-          wrongQuestionIds: wrongIdsList
-        };
+        // 【修正重點】使用 URLSearchParams 將資料轉為表單格式，解決 Google Apps Script 收不到 JSON 的問題
+        const formData = new URLSearchParams();
+        formData.append('studentName', seatNumber.trim() ? `${seatNumber.trim()}號` : '未填寫座號');
+        formData.append('status', statusText);
+        formData.append('timeUsed', timeSpent);
+        formData.append('livesLeft', lives);
+        formData.append('wrongQuestionIds', wrongIdsList);
 
         try {
           fetch(scriptUrl, {
             method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
+            mode: 'no-cors', // 維持 no-cors 以避免跨域預檢錯誤，但因為是 form data，後端一定收得到
+            body: formData
+          }).then(() => console.log('傳送要求已發出'));
         } catch (e) {
           console.error("資料傳送失敗:", e);
         }
@@ -412,7 +343,6 @@
         if (!inputValue.trim()) return;
 
         if (inputValue.trim() === displayQuestion.a) {
-          // 答對
           setErrorHint('');
           setInputValue('');
           
@@ -441,7 +371,6 @@
             }
           }
         } else {
-          // 答錯
           const newLives = lives - 1;
           setLives(newLives);
           setErrorHint(`解碼失敗，再試一次！${displayQuestion.hint}`);
@@ -450,7 +379,7 @@
           if (!isRedemption) {
             if (!wrongHistory.find(item => item.id === displayQuestion.id)) {
               newWrongHistory = [...wrongHistory, {
-                id: displayQuestion.id, // Master Question ID
+                id: displayQuestion.id,
                 title: displayLevel.title,
                 q: displayQuestion.q,
                 a: displayQuestion.a,
@@ -468,7 +397,6 @@
       };
 
       const startGame = () => {
-        // 隨機打亂關卡與題目順序
         const randomizedData = GAME_DATA.map(level => ({
           ...level,
           questions: [...level.questions].sort(() => Math.random() - 0.5)
@@ -493,27 +421,29 @@
         setShowTeacherModal(false);
       };
 
+      // 【修正重點】後端 Apps Script 同步改為接收 e.parameter
       const googleScriptCode = `function doPost(e) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  var data = JSON.parse(e.postData.contents);
+  var data = e.parameter; // 改用 e.parameter 接收來自網頁的表單資料
+  
   sheet.appendRow([
     new Date(),
-    data.studentName,
-    data.status,
-    data.timeUsed,
-    data.livesLeft,
-    data.wrongQuestionIds
+    data.studentName || '未知',
+    data.status || '未知',
+    data.timeUsed || '00:00',
+    data.livesLeft || '0',
+    data.wrongQuestionIds || '無'
   ]);
+  
   return ContentService.createTextOutput("Success");
 }`;
 
       const handleCopyCode = () => {
-        document.execCommand ? document.execCommand('copy') : navigator.clipboard.writeText(googleScriptCode);
+        navigator.clipboard.writeText(googleScriptCode);
         setCopyStatus(true);
         setTimeout(() => setCopyStatus(false), 2000);
       };
 
-      // Generate Student Game URL embedded with Script URL
       const currentAppUrl = window.location.href.split('?')[0];
       const studentShareUrl = scriptUrl 
         ? `${currentAppUrl}?scriptUrl=${encodeURIComponent(scriptUrl)}`
@@ -524,27 +454,24 @@
 
       if (gameState === 'start') {
         return (
-          <div className="min-h-screen w-full bg-gradient-to-b from-blue-300 to-green-200 flex items-center justify-center p-4 relative">
-            
-            {/* 教師設定按鈕 */}
+          <div className="min-h-screen w-full flex items-center justify-center p-4 relative">
             <button 
               onClick={() => setShowTeacherModal(true)}
-              className="absolute top-4 right-4 bg-white/90 hover:bg-white text-gray-700 font-bold p-3 rounded-full shadow-lg flex items-center space-x-2 border border-gray-200 cursor-pointer transition-transform hover:scale-105 z-20"
-              title="教師後台設定"
+              className="absolute top-4 right-4 bg-white text-gray-800 font-bold p-3 rounded-full flex items-center space-x-2 btn-lego z-20"
             >
               <Settings className="w-6 h-6 text-indigo-600" />
-              <span className="hidden sm:inline text-sm">教師後台設定</span>
+              <span className="hidden sm:inline text-sm">教師後台</span>
             </button>
 
-            <div className="bg-white rounded-3xl shadow-2xl p-6 sm:p-8 max-w-lg w-full text-center border-4 border-yellow-400 my-auto">
-              <div className="text-5xl mb-2">🏰</div>
-              <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-3 leading-tight">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 max-w-lg w-full text-center card-lego my-auto">
+              <div className="text-6xl mb-4 drop-shadow-md">🏰</div>
+              <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mb-3 leading-tight tracking-wide">
                 數字王國的神秘寶藏<br/>
-                <span className="text-xl sm:text-2xl text-blue-600">10000以內的數</span>
+                <span className="text-xl sm:text-2xl text-blue-600 mt-2 block">10000以內的數</span>
               </h1>
               
-              <div className="mb-4 text-left">
-                <label className="block text-gray-700 font-bold mb-1 text-sm sm:text-base">
+              <div className="mb-5 text-left mt-6">
+                <label className="block text-gray-800 font-bold mb-2 text-sm sm:text-base">
                   ✏️ 請輸入你的座號：
                 </label>
                 <input 
@@ -554,124 +481,76 @@
                   value={seatNumber}
                   onChange={(e) => setSeatNumber(e.target.value)}
                   placeholder="例如：15"
-                  className="w-full text-lg p-2.5 border-2 border-indigo-200 rounded-xl focus:outline-none focus:border-indigo-500 bg-indigo-50/50"
+                  className="w-full text-lg p-3 border-2 border-gray-800 rounded-xl focus:outline-none focus:ring-4 focus:ring-yellow-200 transition-all font-bold"
                 />
               </div>
 
-              <div className="bg-yellow-50 rounded-xl p-4 mb-5 border border-yellow-200 text-left">
-                <h2 className="text-base font-bold mb-1.5 flex items-center text-yellow-800">
-                  <AlertCircle className="mr-1.5 text-yellow-600 w-5 h-5"/> 遊戲規則：
+              <div className="bg-yellow-50 rounded-xl p-4 mb-6 border-2 border-yellow-400 text-left">
+                <h2 className="text-base font-black mb-2 flex items-center text-yellow-800">
+                  <AlertCircle className="mr-1.5 text-yellow-600 w-5 h-5"/> 遊戲規則
                 </h2>
-                <ul className="list-disc list-inside space-y-1 text-gray-700 text-sm sm:text-base">
-                  <li>這是一個限時 <strong>15分鐘</strong> 的闖關遊戲。</li>
-                  <li>你總共有 <strong>3顆愛心（生命值）</strong>，答錯會扣血！</li>
-                  <li>若答錯題目，最後將進入<strong>「復活試煉」</strong>。</li>
-                  <li><strong>必須連類似題都答對，才能真正獲得寶藏！</strong></li>
+                <ul className="list-disc list-inside space-y-1.5 text-gray-800 font-bold text-sm sm:text-base">
+                  <li>這是一個限時 <span className="text-red-500">15分鐘</span> 的闖關遊戲。</li>
+                  <li>你有 <span className="text-red-500">3顆愛心</span>，答錯會扣血！</li>
+                  <li>若答錯題目，最後將進入「復活試煉」。</li>
                 </ul>
               </div>
 
               <button 
                 onClick={startGame}
-                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl sm:text-2xl py-3.5 px-6 rounded-full shadow-[0_5px_0_#c05600] active:shadow-none active:translate-y-[5px] transition-all cursor-pointer"
+                className="w-full bg-blue-500 text-white font-black text-xl sm:text-2xl py-4 px-6 rounded-xl btn-lego"
               >
                 開始闖關！
               </button>
             </div>
 
-            {/* 教師設定彈出視窗 Modal */}
+            {/* 教師設定彈出視窗 */}
             {showTeacherModal && (
-              <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 overflow-y-auto">
-                <div className="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border-4 border-indigo-500 max-h-[90vh] overflow-y-auto text-left">
-                  <div className="flex justify-between items-center mb-4 border-b pb-3">
-                    <h2 className="text-2xl font-bold text-indigo-700 flex items-center">
-                      <Settings className="mr-2" /> 教師後台設定與統計 QR Code
+              <div className="fixed inset-0 bg-gray-900/40 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+                <div className="bg-white rounded-2xl max-w-2xl w-full p-6 card-lego max-h-[90vh] overflow-y-auto text-left">
+                  <div className="flex justify-between items-center mb-4 border-b-2 border-gray-100 pb-3">
+                    <h2 className="text-2xl font-black text-gray-800 flex items-center">
+                      <Settings className="mr-2 text-indigo-600" /> 教師後台設定
                     </h2>
-                    <button 
-                      onClick={() => setShowTeacherModal(false)}
-                      className="text-gray-400 hover:text-gray-600 font-bold text-2xl"
-                    >
-                      ✕
-                    </button>
+                    <button onClick={() => setShowTeacherModal(false)} className="text-gray-500 hover:text-gray-900 font-black text-2xl">✕</button>
                   </div>
 
                   <div className="space-y-5">
-                    {/* 步驟一：Google Apps Script 網址輸入 */}
-                    <div className="bg-indigo-50 p-4 rounded-2xl border border-indigo-200">
-                      <h3 className="font-bold text-indigo-900 text-lg mb-2">1. 貼上 Google Apps Script 網址 (網頁應用程式)</h3>
+                    <div className="bg-gray-50 p-4 rounded-xl border-2 border-gray-200">
+                      <h3 className="font-bold text-gray-900 text-lg mb-2">1. Google Apps Script 網址</h3>
                       <input 
                         type="text" 
                         value={scriptUrl}
                         onChange={(e) => setScriptUrl(e.target.value)}
                         placeholder="https://script.google.com/macros/s/.../exec"
-                        className="w-full p-2.5 bg-white border border-indigo-300 rounded-xl text-sm mb-2 focus:ring-2 focus:ring-indigo-400"
+                        className="w-full p-3 bg-white border-2 border-gray-300 rounded-lg text-sm mb-2 focus:ring-4 focus:ring-blue-100 outline-none"
                       />
-                      <p className="text-xs text-gray-600">設定後，學生的遊戲成績與錯題號碼會自動寫入您的 Google 試算表。</p>
                     </div>
 
-                    {/* 步驟二：Google 試算表檢視網址 */}
-                    <div className="bg-green-50 p-4 rounded-2xl border border-green-200">
-                      <h3 className="font-bold text-green-900 text-lg mb-2">2. 貼上 Google 試算表網址 (供老師秒開統計)</h3>
+                    <div className="bg-gray-50 p-4 rounded-xl border-2 border-gray-200">
+                      <h3 className="font-bold text-gray-900 text-lg mb-2">2. Google 試算表網址</h3>
                       <input 
                         type="text" 
                         value={sheetUrl}
                         onChange={(e) => setSheetUrl(e.target.value)}
                         placeholder="https://docs.google.com/spreadsheets/d/..."
-                        className="w-full p-2.5 bg-white border border-green-300 rounded-xl text-sm mb-2 focus:ring-2 focus:ring-green-400"
+                        className="w-full p-3 bg-white border-2 border-gray-300 rounded-lg text-sm mb-2 focus:ring-4 focus:ring-blue-100 outline-none"
                       />
-                      <p className="text-xs text-gray-600">此連結將會用來產生老師專用的試算表 QR Code。</p>
                     </div>
 
-                    {/* QR Code 產生區 */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-200">
-                      <div className="text-center p-3 bg-white rounded-xl border border-gray-200 flex flex-col items-center">
-                        <span className="font-bold text-sm mb-2 text-indigo-700">📱 學生掃描進入遊戲 QR Code</span>
-                        <img src={studentQrUrl} alt="學生QRcode" className="w-36 h-36 border p-1 rounded-lg mb-2" />
-                        <span className="text-xs text-gray-500">已自動整合您的 Google 試算表連結</span>
+                    <details className="bg-blue-50 p-4 rounded-xl border-2 border-blue-200">
+                      <summary className="font-black cursor-pointer text-blue-900 text-sm">💡 搭配的 Google Apps Script 語法（點擊展開）</summary>
+                      <div className="relative mt-3">
+                        <textarea readOnly value={googleScriptCode} className="w-full h-32 bg-gray-900 text-green-400 font-mono text-xs p-3 rounded-lg border-2 border-gray-800" />
+                        <button onClick={handleCopyCode} className="absolute top-2 right-2 bg-white text-gray-900 font-bold text-xs px-3 py-1.5 rounded btn-lego flex items-center">
+                          <CopyIcon className="w-3.5 h-3.5 mr-1" /> {copyStatus ? "已複製！" : "複製語法"}
+                        </button>
                       </div>
-
-                      <div className="text-center p-3 bg-white rounded-xl border border-gray-200 flex flex-col items-center">
-                        <span className="font-bold text-sm mb-2 text-green-700">📊 老師查看成績試算表 QR Code</span>
-                        {sheetQrUrl ? (
-                          <img src={sheetQrUrl} alt="試算表QRcode" className="w-36 h-36 border p-1 rounded-lg mb-2" />
-                        ) : (
-                          <div className="w-36 h-36 bg-gray-100 flex items-center justify-center text-xs text-gray-400 rounded-lg mb-2 border text-center p-2">
-                            請先在上方輸入試算表網址
-                          </div>
-                        )}
-                        <span className="text-xs text-gray-500">老師用手機掃描即可開啟後台</span>
-                      </div>
-                    </div>
-
-                    {/* 教學導引摺疊區 */}
-                    <details className="bg-yellow-50 p-3.5 rounded-xl border border-yellow-200 text-xs text-gray-700">
-                      <summary className="font-bold cursor-pointer text-yellow-900 text-sm">💡 如何快速建立免費的 Google 試算表後台？（點擊展開）</summary>
-                      <ol className="list-decimal list-inside space-y-1.5 mt-2 leading-relaxed">
-                        <li>開一個新的 Google 試算表，點選頂部選單的 <strong>「擴充功能」 ➔ 「Apps Script」</strong>。</li>
-                        <li>將原本的程式碼全部刪除，並貼上以下語法：</li>
-                        <div className="relative my-2">
-                          <textarea 
-                            readOnly 
-                            value={googleScriptCode}
-                            className="w-full h-28 bg-gray-900 text-green-400 font-mono text-xs p-2 rounded-lg"
-                          />
-                          <button 
-                            onClick={handleCopyCode}
-                            className="absolute top-2 right-2 bg-indigo-600 text-white text-xs px-2.5 py-1 rounded hover:bg-indigo-700 flex items-center"
-                          >
-                            <CopyIcon className="w-3.5 h-3.5 mr-1" /> {copyStatus ? "已複製！" : "複製語法"}
-                          </button>
-                        </div>
-                        <li>點選右上角 <strong>「部署」 ➔ 「新建部署」</strong>。</li>
-                        <li>齒輪圖示選擇 <strong>「網頁應用程式」</strong>，將「誰可以存取」設為 <strong>「任何人 (Anyone)」</strong>，點擊部署並複製獲得的 URL 貼回上方第一欄即可！</li>
-                      </ol>
                     </details>
                   </div>
 
-                  <div className="mt-6 flex justify-end space-x-3">
-                    <button 
-                      onClick={saveTeacherSettings}
-                      className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-2.5 rounded-xl shadow cursor-pointer text-sm"
-                    >
+                  <div className="mt-6 flex justify-end">
+                    <button onClick={saveTeacherSettings} className="bg-yellow-400 text-gray-900 font-black px-6 py-3 rounded-xl btn-lego text-sm">
                       儲存設定並關閉
                     </button>
                   </div>
@@ -686,7 +565,7 @@
         const isSuccess = gameState === 'success';
         let statusIcon = '👑';
         let statusTitle = '恭喜通關！找到寶藏了！';
-        let statusMessage = `${seatNumber ? seatNumber + '號探險家，' : ''}你花了 ${formatTime(15 * 60 - timeLeft)} 成功解開所有謎題（包含復活試煉）！太厲害了！`;
+        let statusMessage = `${seatNumber ? seatNumber + '號探險家，' : ''}你花了 ${formatTime(15 * 60 - timeLeft)} 成功解開所有謎題！太厲害了！`;
         
         if (gameState === 'timeout') {
           statusIcon = '⏰';
@@ -699,51 +578,43 @@
         }
 
         return (
-          <div className={`min-h-screen w-full overflow-y-auto flex flex-col items-center justify-start p-4 py-8 ${isSuccess ? 'bg-gradient-to-b from-yellow-200 to-yellow-500' : 'bg-gradient-to-b from-gray-700 to-gray-900'}`}>
-            <div className="bg-white rounded-3xl shadow-2xl p-6 sm:p-8 max-w-xl w-full text-center border-4 border-white mb-6 shrink-0">
-              <div className="text-6xl mb-3">{statusIcon}</div>
-              <h1 className={`text-3xl font-bold mb-2 ${isSuccess ? 'text-orange-600' : 'text-gray-800'}`}>
-                {statusTitle}
-              </h1>
-              <p className="text-lg text-gray-600 mb-6">
-                {statusMessage}
-              </p>
+          <div className="min-h-screen w-full overflow-y-auto flex flex-col items-center justify-start p-4 py-8">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 max-w-xl w-full text-center card-lego mb-6 shrink-0">
+              <div className="text-6xl mb-4">{statusIcon}</div>
+              <h1 className="text-3xl font-black mb-3 text-gray-900">{statusTitle}</h1>
+              <p className="text-lg text-gray-700 font-bold mb-6">{statusMessage}</p>
               
               {scriptUrl && (
-                <div className="mb-4 bg-green-50 text-green-700 p-2.5 rounded-xl text-xs font-bold border border-green-200">
-                  ✅ 你的成績與錯題數據已自動傳送至老師的 Google 試算表！
+                <div className="mb-6 bg-green-50 text-green-800 p-3 rounded-xl text-sm font-bold border-2 border-green-300">
+                  ✅ 你的成績已自動傳送給老師！
                 </div>
               )}
 
               <button 
                 onClick={startGame}
-                className="flex items-center justify-center w-full bg-blue-500 hover:bg-blue-600 text-white font-bold text-lg py-3 px-6 rounded-full shadow-[0_5px_0_#1e3a8a] active:shadow-none active:translate-y-[5px] transition-all cursor-pointer"
+                className="flex items-center justify-center w-full bg-blue-500 text-white font-black text-xl py-4 px-6 rounded-xl btn-lego"
               >
-                <RefreshCw className="mr-2 w-5 h-5" /> {isSuccess ? '再玩一次' : '重新挑戰'}
+                <RefreshCw className="mr-2 w-6 h-6" /> {isSuccess ? '再玩一次' : '重新挑戰'}
               </button>
             </div>
 
-            {/* 錯題檢討區 - 清楚標註背景題庫原題號 */}
             {wrongHistory.length > 0 && (
-              <div className="bg-white rounded-3xl shadow-2xl p-6 max-w-xl w-full border-4 border-red-100 shrink-0 mb-6">
-                <h2 className="text-xl font-bold text-red-600 mb-4 flex items-center justify-center">
-                  <AlertCircle className="mr-2 w-6 h-6" /> 老師的秘密筆記：錯題檢討區
+              <div className="bg-white rounded-2xl p-6 max-w-xl w-full card-lego shrink-0 mb-6">
+                <h2 className="text-xl font-black text-gray-900 mb-4 flex items-center justify-center">
+                  <AlertCircle className="mr-2 w-6 h-6 text-red-500" /> 錯題檢討筆記
                 </h2>
-                <div className="space-y-3 text-left">
+                <div className="space-y-4 text-left">
                   {wrongHistory.map((item, index) => (
-                    <div key={index} className="bg-red-50 p-4 rounded-xl border border-red-100 relative">
-                      <div className="text-xs text-red-500 font-bold mb-1 flex justify-between items-center">
+                    <div key={index} className="bg-red-50 p-4 rounded-xl border-2 border-red-200">
+                      <div className="text-sm text-red-600 font-black mb-2 flex justify-between items-center">
                         <span>{item.title}</span>
-                        {/* 清楚顯示背景題庫原題號 */}
-                        <span className="bg-red-600 text-white font-mono text-xs px-2.5 py-0.5 rounded-full font-bold shadow-sm">
-                          📌 題庫原題號：第 {item.id} 題
-                        </span>
+                        <span className="bg-white text-red-600 border-2 border-red-200 px-2.5 py-1 rounded-lg">第 {item.id} 題</span>
                       </div>
-                      <div className="text-base text-gray-800 font-bold mb-2">{item.q}</div>
-                      <div className="text-green-700 font-bold bg-green-100 px-3 py-1 rounded-lg inline-block text-sm mb-1">
-                        ✅ 正確解答：{item.a}
+                      <div className="text-base text-gray-900 font-bold mb-3 leading-relaxed">{item.q}</div>
+                      <div className="text-green-800 font-black bg-green-100 border-2 border-green-300 px-3 py-1.5 rounded-lg inline-block text-sm mb-2">
+                        正確解答：{item.a}
                       </div>
-                      <div className="text-gray-600 text-xs flex items-start mt-1">
+                      <div className="text-gray-700 font-bold text-sm flex items-start mt-1">
                         💡 <span className="ml-1">{item.hint}</span>
                       </div>
                     </div>
@@ -756,84 +627,82 @@
       }
 
       return (
-        <div className="h-screen w-screen bg-slate-50 flex flex-col overflow-hidden">
-          {/* Top Bar */}
-          <div className="bg-white shadow-sm px-4 py-2.5 shrink-0 border-b border-slate-200">
-            <div className="max-w-2xl mx-auto flex justify-between items-center">
-              <div className={`flex items-center space-x-1.5 text-base font-bold ${isRedemption ? 'text-orange-600' : 'text-indigo-600'}`}>
-                <Trophy className="w-5 h-5" />
+        <div className="h-screen w-screen flex flex-col overflow-hidden">
+          {/* Top Bar - Clean Style */}
+          <div className="bg-white px-4 py-3 shrink-0 border-b-2 border-gray-200 z-10 relative">
+            <div className="max-w-3xl mx-auto flex justify-between items-center">
+              <div className="flex items-center space-x-1.5 text-base font-black text-gray-800">
+                <Trophy className="w-5 h-5 text-yellow-500" />
                 <span>{isRedemption ? `補考：${currentRedemptionIdx + 1} / ${redemptionQuestions.length}` : `進度：${currentGlobalQuestionIdx} / ${totalQuestions}`}</span>
               </div>
               
               <div className="flex items-center space-x-1 text-red-500">
                 {[...Array(3)].map((_, i) => (
-                  <Heart key={i} fill={i < lives ? "currentColor" : "none"} className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <Heart key={i} fill={i < lives ? "currentColor" : "none"} className="w-6 h-6" />
                 ))}
               </div>
 
-              <div className={`flex items-center space-x-1.5 text-xl font-bold px-3 py-1 rounded-full ${timeLeft < 180 ? 'bg-red-100 text-red-600 animate-pulse' : 'bg-blue-100 text-blue-700'}`}>
+              <div className="flex items-center space-x-1.5 text-lg font-black text-gray-800 bg-gray-100 px-3 py-1 rounded-lg border-2 border-gray-200">
                 <Clock className="w-5 h-5" />
-                <span>{formatTime(timeLeft)}</span>
+                <span className={timeLeft < 180 ? 'text-red-600' : ''}>{formatTime(timeLeft)}</span>
               </div>
             </div>
             
-            <div className="max-w-2xl mx-auto mt-2 bg-gray-200 rounded-full h-2 overflow-hidden">
-              <div className={`h-2 rounded-full transition-all duration-500 ease-out ${isRedemption ? 'bg-orange-500' : 'bg-indigo-500'}`} style={{ width: `${progressPercent}%` }}></div>
+            <div className="max-w-3xl mx-auto mt-3 bg-gray-200 rounded-full h-3 overflow-hidden border-2 border-gray-300">
+              <div className={`h-full transition-all duration-500 ease-out ${isRedemption ? 'bg-orange-500' : 'bg-blue-500'}`} style={{ width: `${progressPercent}%` }}></div>
             </div>
           </div>
 
           {/* Main Content Area */}
-          <div className="flex-1 flex flex-col items-center justify-center p-3 sm:p-4 overflow-hidden">
-            <div className={`max-w-2xl w-full h-full max-h-[85vh] flex flex-col bg-white rounded-3xl shadow-xl border overflow-hidden ${isRedemption ? 'border-orange-200' : 'border-indigo-100'}`}>
+          <div className="flex-1 flex flex-col items-center justify-center p-4 overflow-hidden relative">
+            <div className="max-w-3xl w-full h-full max-h-[80vh] flex flex-col bg-white rounded-2xl card-lego overflow-hidden">
               
-              <div className={`text-white px-5 py-3.5 shadow-md relative shrink-0 ${isRedemption ? 'bg-orange-600' : 'bg-indigo-600'}`}>
-                <div className="absolute top-[-10px] right-[-10px] text-6xl opacity-15">{displayLevel.icon}</div>
-                <h2 className="text-lg sm:text-xl font-bold flex items-center relative z-10">
-                  <span className="text-2xl mr-2">{displayLevel.icon}</span>
+              <div className={`px-6 py-4 border-b-2 border-gray-800 shrink-0 ${isRedemption ? 'bg-orange-100' : 'bg-yellow-100'}`}>
+                <h2 className="text-xl sm:text-2xl font-black text-gray-900 flex items-center">
+                  <span className="text-3xl mr-3 drop-shadow-sm">{displayLevel.icon}</span>
                   {displayLevel.title}
                 </h2>
-                <p className={`text-sm sm:text-base relative z-10 mt-1 leading-snug ${isRedemption ? 'text-orange-100' : 'text-indigo-100'}`}>
+                <p className="text-sm sm:text-base mt-2 font-bold text-gray-700 leading-relaxed">
                   {displayLevel.story}
                 </p>
               </div>
 
-              <div className="flex-1 p-4 sm:p-6 flex flex-col justify-between overflow-hidden">
-                <div className={`border-l-4 p-4 rounded-r-xl my-auto ${isRedemption ? 'bg-orange-50 border-orange-500' : 'bg-blue-50 border-blue-500'}`}>
-                  <p className="text-lg sm:text-xl text-gray-800 font-bold leading-relaxed">
+              <div className="flex-1 p-5 sm:p-8 flex flex-col justify-between overflow-hidden bg-white">
+                <div className="my-auto">
+                  <p className="text-xl sm:text-2xl text-gray-900 font-black leading-relaxed">
                     {displayQuestion.q}
                   </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 mt-2">
+                <form onSubmit={handleSubmit} className="space-y-4 mt-6">
                   <div>
-                    <label className="block text-gray-600 font-bold mb-1.5 text-sm sm:text-base flex items-center">
-                      <Key className={`w-4 h-4 mr-1.5 ${isRedemption ? 'text-orange-500' : 'text-indigo-500'}`} /> 請輸入你的答案（數字）：
+                    <label className="block text-gray-800 font-black mb-2 text-base flex items-center">
+                      <Key className="w-5 h-5 mr-2 text-yellow-500" /> 請輸入數字答案：
                     </label>
                     <input
                       type="number"
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
-                      className={`w-full text-2xl sm:text-3xl p-2.5 sm:p-3 border-3 sm:border-4 rounded-xl text-center focus:outline-none focus:ring-4 transition-all h-12 sm:h-14 ${errorHint ? 'border-red-400 focus:ring-red-200 bg-red-50' : (isRedemption ? 'border-orange-200 focus:border-orange-500 focus:ring-orange-100' : 'border-indigo-200 focus:border-indigo-500 focus:ring-indigo-100')}`}
-                      placeholder="輸入數字..."
+                      className={`w-full text-3xl font-black p-4 border-2 rounded-xl text-center focus:outline-none transition-all h-16 ${errorHint ? 'border-red-500 bg-red-50 focus:ring-4 focus:ring-red-200' : 'border-gray-800 focus:ring-4 focus:ring-yellow-200 shadow-[4px_4px_0_0_#1f2937]'}`}
+                      placeholder="輸入密碼"
                       autoFocus
                     />
                   </div>
 
                   {errorHint && (
-                    <div className="bg-red-100 text-red-700 p-2.5 rounded-lg flex items-start text-xs sm:text-sm font-bold animate-bounce">
-                      <XCircle className="w-4 h-4 mr-1.5 flex-shrink-0 mt-0.5" />
+                    <div className="bg-red-50 text-red-700 p-3 rounded-xl flex items-start text-sm font-black border-2 border-red-200 animate-pulse">
+                      <XCircle className="w-5 h-5 mr-2 flex-shrink-0" />
                       <span>{errorHint}</span>
                     </div>
                   )}
 
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center bg-green-500 hover:bg-green-600 text-white font-bold text-lg sm:text-xl py-3 rounded-xl shadow-[0_4px_0_#166534] active:shadow-none active:translate-y-[4px] transition-all cursor-pointer"
+                    className="w-full flex items-center justify-center bg-green-500 text-white font-black text-xl sm:text-2xl py-4 rounded-xl btn-lego"
                   >
-                    送出答案 <ChevronRight className="w-6 h-6 ml-1" />
+                    送出答案 <ChevronRight className="w-7 h-7 ml-1" />
                   </button>
                 </form>
-
               </div>
             </div>
           </div>
