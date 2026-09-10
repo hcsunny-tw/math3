@@ -7,8 +7,10 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- 芫荽注音字型 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/max32002/iansui-zy@master/webfont/iansui-zy.css" />
+  
+  <!-- 直接載入「芫荽注音體」雲端字型 (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/max32002/bpmfiansui@master/webfont/bpmfiansui.css" />
+  
   <!-- React & ReactDOM -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
@@ -18,10 +20,12 @@
 
   <style>
     body {
-      font-family: 'Iansui-ZY', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      /* 直接套用雲端注音字型 */
+      font-family: 'BpmfIansui', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: #f7f7f5;
       touch-action: pan-y; /* 改善平板滑動體驗 */
     }
+    
     .btn-lego {
       border: 2px solid #1f2937;
       box-shadow: 4px 4px 0px 0px #1f2937;
