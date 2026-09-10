@@ -97,14 +97,14 @@
         ]
       },
       {
-        level: 4, title: "關卡四：迷宮數線路", story: "通往寶藏庫的地上畫著一條神秘數線，只有踩在正確的數字格上才不會掉入陷阱！", icon: "🗺️👣",
+        level: 4, title: "關卡四：迷宮數線路", story: "通往寶庫的地上畫著一條神秘數線，只有踩在正確的數字格上才不會掉入陷阱！", icon: "🗺️👣",
         questions: [
           { id: 10, q: "數線上記錄著：[ 4600 ] ➔ [ 4700 ] ➔ [  ?  ] ➔ [ 4900 ]。請問 [ ? ] 的數字是多少？", a: "4800", hint: "觀察一下，向右每走一格是增加 100 喔！", similar: { id: "10-S", masterId: 10, q: "【復活試煉】數線上記錄著：[ 3500 ] ➔ [ 3600 ] ➔ [  ?  ] ➔ [ 3800 ]。請問 [ ? ] 的數字是多少？", a: "3700", hint: "觀察一下，向右每走一格是增加 100 喔！" } },
           { id: 11, q: "數線上記錄著：[ 2100 ] ➔ [ 2150 ] ➔ [ 2200 ] ➔ [  A  ] ➔ [ 2300 ]。請問字母 A 代表多少？", a: "2250", hint: "向右每走一格是增加 50，2200 再加 50 是多少呢？", similar: { id: "11-S", masterId: 11, q: "【復活試煉】數線上記錄著：[ 1200 ] ➔ [ 1250 ] ➔ [ 1300 ] ➔ [  A  ] ➔ [ 1400 ]。請問字母 A 代表多少？", a: "1350", hint: "向右每走一格是增加 50，1300 再加 50 是多少呢？" } }
         ]
       },
       {
-        level: 5, title: "關卡五：終極寶藏箱", story: "你終於來到了寶藏箱前！這是最後一道防護密碼！", icon: "💎📦",
+        level: 5, title: "關卡五：終極寶箱", story: "你終於來到了寶箱前！這是最後一道防護密碼！", icon: "💎📦",
         questions: [
           { id: 12, q: "密碼提示：一個四位數。比6000大，比7000小。百位是3，十位是8，個位比十位小2。密碼是？", a: "6386", hint: "一步步推算：千位是6、百位是3、十位是8，個位是 8-2 喔！", similar: { id: "12-S", masterId: 12, q: "【復活試煉】密碼提示：一個四位數。比8000大，比9000小。百位是5，十位是7，個位比十位大2。密碼是？", a: "8579", hint: "一步步推算：千位是8、百位是5、十位是7，個位是 7+2 喔！" } }
         ]
@@ -201,7 +201,7 @@
       const currentGlobalQuestionIdx = activeGameData.slice(0, currentLevelIdx).reduce((acc, level) => acc + level.questions.length, 0) + currentQuestionIdx + 1;
       const isRedemption = gameState === 'redemption';
       
-      const displayLevel = isRedemption ? { title: "最終考驗：錯題復活試煉", story: "守衛擋住了寶藏庫的大門：「你剛才有些地方不夠細心喔！請把這幾道類似的謎題解開，證明你的實力才能通關！」", icon: "🛡️✨" } : activeGameData[currentLevelIdx];
+      const displayLevel = isRedemption ? { title: "最終考驗：錯題復活試煉", story: "守衛擋住了寶庫的大門：「你剛才有些地方不夠細心喔！請把這幾道類似的謎題解開，證明你的實力才能通關！」", icon: "🛡️✨" } : activeGameData[currentLevelIdx];
       const displayQuestion = isRedemption ? redemptionQuestions[currentRedemptionIdx] : displayLevel?.questions[currentQuestionIdx];
       const progressPercent = isRedemption ? ((currentRedemptionIdx) / redemptionQuestions.length) * 100 : (currentGlobalQuestionIdx / totalQuestions) * 100;
 
@@ -357,7 +357,7 @@
             <div className="bg-white rounded-2xl p-6 sm:p-8 max-w-lg w-full text-center card-lego my-auto">
               <div className="text-6xl mb-4 drop-shadow-md">🏰</div>
               <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mb-3 leading-tight tracking-wide">
-                數字王國的神秘寶藏<br/><span className="text-xl sm:text-2xl text-blue-600 mt-2 block">10000以內的數</span>
+                數字王國的秘寶<br/><span className="text-xl sm:text-2xl text-blue-600 mt-2 block">10000以內的數</span>
               </h1>
               
               <div className="mb-5 text-left mt-6">
@@ -368,7 +368,7 @@
               <div className="bg-yellow-50 rounded-xl p-4 mb-6 border-2 border-yellow-400 text-left">
                 <h2 className="text-base font-black mb-2 flex items-center text-yellow-800"><AlertCircle className="mr-1.5 text-yellow-600 w-5 h-5"/> 遊戲規則</h2>
                 <ul className="list-disc list-inside space-y-1.5 text-gray-800 font-bold text-sm sm:text-base">
-                  <li>限時 <span className="text-red-500">15分鐘</span>，有防斷線機制，重新整理也不怕。</li>
+                  <li>限時 <span className="text-red-500">15分鐘</span>，有防斷線機制，頁面整理也不怕。</li>
                   <li>你有 <span className="text-red-500">3顆愛心</span>，答錯會扣血！</li>
                   <li>若答錯題目，最後將進入「復活試煉」。</li>
                 </ul>
@@ -411,10 +411,10 @@
       if (gameState === 'success' || gameState === 'timeout' || gameState === 'gameover') {
         const isSuccess = gameState === 'success';
         let statusIcon = '👑';
-        let statusTitle = '恭喜通關！找到寶藏了！';
+        let statusTitle = '恭喜通關！找到寶物了！';
         let statusMessage = `${seatNumber ? seatNumber + '號探險家，' : ''}你花了 ${formatTime(15 * 60 - timeLeft)} 成功解開所有謎題！`;
         if (gameState === 'timeout') { statusIcon = '⏰'; statusTitle = '啊！時間到了！'; statusMessage = '不要灰心，多練習幾次，你一定可以通關的！'; }
-        else if (gameState === 'gameover') { statusIcon = '💔'; statusTitle = '哎呀！能量耗盡了！'; statusMessage = '沒關係，看看下方的錯題檢討，重新挑戰一次吧！'; }
+        else if (gameState === 'gameover') { statusIcon = '💔'; statusTitle = '哎呀！能量耗盡了！'; statusMessage = '沒關係，看看下方的錯題檢討，再挑戰一次吧！'; }
 
         return (
           <div className="min-h-screen w-full overflow-y-auto flex flex-col items-center justify-start p-4 py-8 relative">
@@ -427,7 +427,7 @@
                 <div className="mb-6 bg-green-50 text-green-800 p-3 rounded-xl text-sm font-bold border-2 border-green-300">✅ 你的成績已自動傳送給老師！</div>
               )}
               <button onClick={startGame} className="flex items-center justify-center w-full bg-blue-500 text-white font-black text-xl py-4 px-6 rounded-xl btn-lego">
-                <RefreshCw className="mr-2 w-6 h-6" /> {isSuccess ? '再玩一次' : '重新挑戰'}
+                <RefreshCw className="mr-2 w-6 h-6" /> {isSuccess ? '再玩一次' : '再次挑戰'}
               </button>
             </div>
 
